@@ -3,6 +3,7 @@ import { repositoryName } from "@/prismicio";
 import "./global.css";
 import { Montserrat as Body, Barlow as Subtitle, Pacifico as Logo, Barlow_Condensed as Heading, Barlow_Semi_Condensed as Paragraph } from 'next/font/google'
 import { cn } from "@/libs/utils";
+import Header from "@/Components/Header/Header";
 
 const logo = Logo(
   {
@@ -52,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn('min-h-screen font-body antialiased', body.variable, heading.variable, logo.variable, paragraph.variable, subtitle.variable)}>
+        <Header />
         {children}
       </body>
       <PrismicPreview repositoryName={repositoryName} />

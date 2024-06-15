@@ -1,3 +1,5 @@
+const { text } = require('stream/consumers');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -17,7 +19,16 @@ module.exports = {
         subtitle: ["var(--font-subtitle)"],
         paragragh: ["var(--font-paragraph)"],
       },
+      colors: {
+        primary: "#1F2937",
+        secondary: "#4B5563",
+        accent: "#818CF8",
+        background: "#111827",
+        text: "#F9FAFB",
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

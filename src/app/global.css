@@ -4,6 +4,25 @@
 
 @layer base {
     body {
-        /* @apply bg-black text-white; */
+        @apply bg-background text-text;
+    }
+
+    .default-button {
+        @apply bg-text text-background hover:bg-accent hover:text-text;
+    }
+    .destructive-button {
+        @apply bg-red-500 text-background hover:bg-red-600;
+    }
+    .outline-button {
+        @apply border border-text text-text hover:bg-background;
+    }
+    .subtle-button {
+        @apply text-text hover:bg-background;
+    }
+    .ghost-button {
+        @apply bg-transparent text-text hover:bg-background;
+    }
+    .link-button {
+        @apply bg-transparent text-text hover:bg-background;
     }
 }

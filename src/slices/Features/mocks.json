@@ -1,0 +1,53 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"features": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"feature_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "could",
+									"type": "Text"
+								}
+							],
+							[
+								"feature_description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "missing",
+									"type": "Text"
+								}
+							],
+							[
+								"button_label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "tie",
+									"type": "Text"
+								}
+							],
+							[
+								"button_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
