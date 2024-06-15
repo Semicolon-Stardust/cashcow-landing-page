@@ -1,1 +1,1 @@
-# Cashcow Landing Page
+# CashCow Landing Page

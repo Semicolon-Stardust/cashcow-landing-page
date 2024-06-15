@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "law",
+				"type": "Text"
+			},
+			"subheadline": {
+				"__TYPE__": "FieldContent",
+				"value": "mixture",
+				"type": "Text"
+			},
+			"cta_label": {
+				"__TYPE__": "FieldContent",
+				"value": "whose",
+				"type": "Text"
+			},
+			"cta_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			}
+		},
+		"items": []
+	}
+]
