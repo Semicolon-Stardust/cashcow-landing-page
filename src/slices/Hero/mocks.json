@@ -5,24 +5,59 @@
 		"primary": {
 			"headline": {
 				"__TYPE__": "FieldContent",
-				"value": "law",
-				"type": "Text"
+				"type": "Text",
+				"value": "Take Control of Your Finances"
 			},
 			"subheadline": {
 				"__TYPE__": "FieldContent",
-				"value": "mixture",
-				"type": "Text"
+				"type": "Text",
+				"value": "Track expenses, set budgets, and achieve your financial goals."
 			},
 			"cta_label": {
 				"__TYPE__": "FieldContent",
-				"value": "whose",
-				"type": "Text"
+				"type": "Text",
+				"value": "Sign Up for Free"
 			},
 			"cta_link": {
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev"
+				}
+			},
+			"hero_photo": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+					"width": 3935,
+					"height": 5894
+				},
+				"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+				"width": 3935,
+				"height": 5894,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"dev_cta_label": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Code with us"
+			},
+			"dev_cta_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
 				}
 			}
 		},

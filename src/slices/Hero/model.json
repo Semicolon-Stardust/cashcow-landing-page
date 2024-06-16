@@ -40,6 +40,29 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "hero_photo": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Photo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "dev_cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "Dev CTA Label",
+            "placeholder": ""
+          }
+        },
+        "dev_cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Dev CTA Link",
+            "placeholder": "",
+            "select": null
+          }
         }
       },
       "items": {}
