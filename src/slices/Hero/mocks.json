@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"headline": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Take Control of Your Finances"
-			},
 			"subheadline": {
 				"__TYPE__": "FieldContent",
 				"type": "Text",
@@ -59,6 +54,17 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io"
 				}
+			},
+			"headline": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Company"
+						}
+					}
+				]
 			}
 		},
 		"items": []

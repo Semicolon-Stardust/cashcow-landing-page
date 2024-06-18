@@ -5,6 +5,7 @@ import { Content } from "@prismicio/client";
 import {
 	PrismicImage,
 	PrismicLink,
+	PrismicRichText,
 	SliceComponentProps,
 } from "@prismicio/react";
 import { HeroBounded } from "@/Components/Helpers/HeroBounded";
@@ -58,10 +59,17 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 								</span>
 							</Button>
 						</div>
-						<div className="w-full mb-8">
-							<h1 className="lg:text-9xl md:text-7xl text-3xl font-semibold font-heading leading-none tracking-tighter">
-								{slice.primary.headline}
-							</h1>
+						<div className="w-[39rem] mb-8 ">
+								<PrismicRichText
+									components={{
+										heading2: ({ children }) =>  (
+											<h2 className="text-4xl md:text-3xl sm:text-xl font-bold">{children}</h2>
+										),
+										em: ({ children }) => (
+											<div className="lg:text-8xl md:text-6xl text-5xl font-semibold font-heading leading-none tracking-normal text-accent antialiased">{children}</div>
+										),
+									}}
+									field={slice.primary.headline} />
 						</div>
 					</div>
 

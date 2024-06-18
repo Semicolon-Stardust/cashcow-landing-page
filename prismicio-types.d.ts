@@ -357,12 +357,12 @@ export interface HeroSliceDefaultPrimary {
   /**
    * Headline field in *Hero → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.default.primary.headline
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  headline: prismic.KeyTextField;
+  headline: prismic.RichTextField;
 
   /**
    * Subheadline field in *Hero → Default → Primary*
