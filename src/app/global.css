@@ -25,4 +25,8 @@
     .link-button {
         @apply bg-transparent text-text hover:bg-background;
     }
+
+    .animated-navbar {
+        @apply flex justify-between items-center w-full px-20 py-5 bg-background shadow-sm shadow-accent opacity-0;
+    }
 }
