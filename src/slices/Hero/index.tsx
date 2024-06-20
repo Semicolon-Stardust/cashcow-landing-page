@@ -1,7 +1,7 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, buttonVariants } from "@/Components/Reusables/button";
-import { Content } from "@prismicio/client";
+import { Content, KeyTextField } from "@prismicio/client";
 import {
 	PrismicImage,
 	PrismicLink,
@@ -11,24 +11,141 @@ import {
 import { HeroBounded } from "@/Components/Helpers/HeroBounded";
 import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { cn } from "@/libs/utils";
+import { MarqueeCard } from "@/Components/Reusables/marquee-card";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Props for `Hero`.
- */
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
-/**
- * Component for "Hero" Slices.
- */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
+	const renderWords = (text: KeyTextField, key: string) => {
+		if (!text) return;
+		return text.split(" ").map((words, index) => (
+			<>
+				<span key={key + index} className={`inline-block`}>
+					{words}
+				</span>{" "}
+			</>
+		));
+	};
+
+	useGSAP(() => {
+		let tl = gsap.timeline();
+		tl.fromTo(
+			".prismic-h2",
+			{
+				y: 100,
+				duration: 0.3,
+				ease: "power4.out",
+				opacity: 0,
+			},
+			{
+				y: 0,
+				duration: 0.5,
+				delay: 1,
+				ease: "power4.out",
+				opacity: 1,
+			}
+		);
+		tl.fromTo(
+			".prismic-em",
+			{
+				y: 100,
+				duration: 2,
+				ease: "power4.out",
+				opacity: 0,
+			},
+			{
+				y: 0,
+				duration: 0.6,
+				ease: "power4.out",
+				opacity: 1,
+			}
+		);
+		tl.fromTo(
+			".image",
+			{
+				y: 100,
+				duration: 2,
+				ease: "power4.out",
+				opacity: 0,
+			},
+			{
+				y: 0,
+				duration: 0.7,
+				ease: "power4.out",
+				opacity: 1,
+			}
+		);
+		tl.from(".subheadline span", {
+			y: 50,
+			duration: 0.6,
+			ease: "power4.out",
+			opacity: 0,
+			stagger: 0.1,
+		});
+		tl.fromTo(
+			".hero-button",
+			{
+				y: 100,
+				duration: 0.6,
+				ease: "power4.out",
+				opacity: 0,
+			},
+			{
+				y: 0,
+				duration: 1,
+				ease: "power4.out",
+				opacity: 1,
+			}
+		);
+		tl.fromTo(
+			".rounded-button",
+			{
+				y: 100,
+				duration: 1,
+				ease: "power4.out",
+				opacity: 0,
+			},
+			{
+				y: 0,
+				duration: 1,
+				ease: "power4.out",
+				opacity: 1,
+			}
+		);
+
+		tl.from("marquee-container", {
+			y: 100,
+			duration: 1,
+			ease: "power4.out",
+			opacity: 0,
+		});
+
+		tl.to(".marquee", {
+			x: "-100%",
+			duration: 10,
+			ease: "linear",
+			repeat: -1,
+			stagger: 0.1,
+		});
+
+
+
+
+	});
+
 	const ref = useRef(null);
 	return (
 		<HeroBounded
 			data-slice-type={slice.slice_type}
 			data-slice-variation={slice.variation}
-			className="bg-background"
+			className="hero"
 		>
-			<div className="min-h-[70vh] flex flex-col items-center w-full">
+			<div className="min-h-screen flex flex-col justify-start w-full gap-7">
 				<div className="col-start-1 md:row-start-1 w-full">
 					<div className="flex items-start justify-start flex-col gap-7">
 						<div className="">
@@ -37,7 +154,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 								size={"sm"}
 								variant={"default"}
 								className={
-									"bg-accent/45 text-text rounded-full py-4 px-10 flex items-center gap-2"
+									"rounded-button bg-accent/45 text-text rounded-full py-4 px-10 flex items-center gap-2 opacity-0"
 								}
 							>
 								<span>{slice.primary.dev_cta_label}</span>
@@ -59,22 +176,27 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 								</span>
 							</Button>
 						</div>
-						<div className="w-[39rem] mb-8 ">
-								<PrismicRichText
-									components={{
-										heading2: ({ children }) =>  (
-											<h2 className="text-4xl md:text-3xl sm:text-xl font-bold">{children}</h2>
-										),
-										em: ({ children }) => (
-											<div className="lg:text-8xl md:text-6xl text-5xl font-semibold font-heading leading-none tracking-normal text-accent antialiased">{children}</div>
-										),
-									}}
-									field={slice.primary.headline} />
+						<div className="md:w-[39rem] w-auto mb-8">
+							<PrismicRichText
+								components={{
+									heading2: ({ children }) => (
+										<h2 className="prismic-h2 text-4xl md:text-3xl sm:text-xl font-bold opacity-0">
+											{children}
+										</h2>
+									),
+									em: ({ children }) => (
+										<div className="prismic-em lg:text-8xl md:text-6xl text-5xl font-semibold font-heading leading-none tracking-normal text-accent antialiased">
+											{children}
+										</div>
+									),
+								}}
+								field={slice.primary.headline}
+							/>
 						</div>
 					</div>
 
 					<div className="grid lg:grid-cols-3 md:grid-cols-1 items-center md:gap-x-1 gap-x-0 gap-y-7">
-						<div className="w-full col-span-2">
+						<div className="image w-full col-span-2 opacity-0">
 							<PrismicNextImage
 								className="md:h-[200px] h-[100px] w-full aspect-video object-cover rounded-lg border border-accent/80"
 								field={slice.primary.hero_photo}
@@ -83,12 +205,15 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 							/>
 						</div>
 						<div className="w-full h-full flex flex-col items-center justify-center gap-8">
-							<div className="w-full flex justify-end">
+							<div className="subheadline w-full flex justify-end">
 								<p className="w-[350px] text-right font-body text-xl">
-									{slice.primary.subheadline}
+									{renderWords(
+										slice.primary.subheadline,
+										"subheadline"
+									)}
 								</p>
 							</div>
-							<div className="w-full flex justify-end">
+							<div className="hero-button w-full flex justify-end opacity-0">
 								<Button
 									ref={ref}
 									size={"lg"}
@@ -100,6 +225,30 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 							</div>
 						</div>
 					</div>
+				</div>
+				<div className="marquee-container">
+					{slice.primary.our_sponsors.map((sponsor, index) => {
+						return (
+							<div key={index} className="marquee">
+								<MarqueeCard
+									className={cn("px-4 py-12 rounded-lg")}
+									description={sponsor.sponsor_description}
+									icon={sponsor.sponsor_icon}
+								/>
+							</div>
+						);
+					})}
+					{slice.primary.our_sponsors.map((sponsor, index) => {
+						return (
+							<div key={index} className="marquee">
+								<MarqueeCard
+									className={cn("px-4 py-12 rounded-lg")}
+									description={sponsor.sponsor_description}
+									icon={sponsor.sponsor_icon}
+								/>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 		</HeroBounded>

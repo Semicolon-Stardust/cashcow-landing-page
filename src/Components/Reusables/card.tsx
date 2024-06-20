@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, forwardRef } from "react";
+import { forwardRef } from "react";
 import { cn } from "@/libs/utils";
 import { PrismicNextLink, PrismicNextLinkProps } from "@prismicio/next";
 import { PrismicTextProps } from "@prismicio/react";

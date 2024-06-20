@@ -65,6 +65,37 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "our_sponsors": {
+          "type": "Group",
+          "config": {
+            "label": "Our Sponsors",
+            "repeat": true,
+            "fields": {
+              "sponsor_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Sponsor Name",
+                  "placeholder": ""
+                }
+              },
+              "sponsor_description": {
+                "type": "Text",
+                "config": {
+                  "label": "Sponsor Description",
+                  "placeholder": ""
+                }
+              },
+              "sponsor_icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Sponsor Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
         }
       },
       "items": {}

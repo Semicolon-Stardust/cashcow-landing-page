@@ -351,6 +351,41 @@ export type FeaturesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Hero → Default → Primary → Our Sponsors*
+ */
+export interface HeroSliceDefaultPrimaryOurSponsorsItem {
+  /**
+   * Sponsor Name field in *Hero → Default → Primary → Our Sponsors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.our_sponsors[].sponsor_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sponsor_name: prismic.KeyTextField;
+
+  /**
+   * Sponsor Description field in *Hero → Default → Primary → Our Sponsors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.our_sponsors[].sponsor_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sponsor_description: prismic.KeyTextField;
+
+  /**
+   * Sponsor Icon field in *Hero → Default → Primary → Our Sponsors*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.our_sponsors[].sponsor_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sponsor_icon: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -423,6 +458,18 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   dev_cta_link: prismic.LinkField;
+
+  /**
+   * Our Sponsors field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.our_sponsors[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  our_sponsors: prismic.GroupField<
+    Simplify<HeroSliceDefaultPrimaryOurSponsorsItem>
+  >;
 }
 
 /**
@@ -479,6 +526,7 @@ declare module "@prismicio/client" {
       FeaturesSliceVariation,
       FeaturesSliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimaryOurSponsorsItem,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
