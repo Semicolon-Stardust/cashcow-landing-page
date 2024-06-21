@@ -38,12 +38,20 @@
         @apply bg-background;
     }
 
+    .sponsors {
+        @apply opacity-0;
+    }
+
+    .sponsors .title {
+        @apply w-full bg-accent/25 font-heading text-4xl text-center rounded-t-md py-2;
+    }
+
     .marquee-container {
-        @apply flex px-1 gap-10 bg-accent/15 rounded-lg overflow-hidden opacity-0;
+        @apply flex px-4 py-5 gap-10 bg-accent/15 rounded-b-lg overflow-hidden;
     }
 
     .marquee {
-        @apply flex shrink-0 items-center py-2 text-background font-heading tracking-wider;
+        @apply flex shrink-0 items-center py-2 px-4 rounded-md text-background font-heading tracking-wider bg-background;
     }
 
     .marquee h3 {

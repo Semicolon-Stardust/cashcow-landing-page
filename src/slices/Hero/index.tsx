@@ -117,25 +117,24 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 				opacity: 1,
 			}
 		);
-
-		tl.from("marquee-container", {
+		tl.fromTo('.sponsors', {
 			y: 100,
 			duration: 1,
 			ease: "power4.out",
 			opacity: 0,
+		}, {
+			y: 0,
+			duration: 1,
+			ease: "power4.out",
+			opacity: 1,
 		});
 
-		tl.to(".marquee", {
-			x: "-100%",
-			duration: 10,
+		tl.to('.marquee', {
+			xPercent: -1000,
+			duration: 1000,
 			ease: "linear",
-			repeat: -1,
-			stagger: 0.1,
+			speed: 50,
 		});
-
-
-
-
 	});
 
 	const ref = useRef(null);
@@ -145,9 +144,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 			data-slice-variation={slice.variation}
 			className="hero"
 		>
-			<div className="min-h-screen flex flex-col justify-start w-full gap-7">
+			<div className="min-h-screen flex flex-col justify-start w-full gap-20">
 				<div className="col-start-1 md:row-start-1 w-full">
-					<div className="flex items-start justify-start flex-col gap-7">
+					<div className="flex items-start justify-start flex-col gap-4">
 						<div className="">
 							<Button
 								ref={ref}
@@ -226,29 +225,40 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 						</div>
 					</div>
 				</div>
-				<div className="marquee-container">
-					{slice.primary.our_sponsors.map((sponsor, index) => {
-						return (
-							<div key={index} className="marquee">
-								<MarqueeCard
-									className={cn("px-4 py-12 rounded-lg")}
-									description={sponsor.sponsor_description}
-									icon={sponsor.sponsor_icon}
-								/>
-							</div>
-						);
-					})}
-					{slice.primary.our_sponsors.map((sponsor, index) => {
-						return (
-							<div key={index} className="marquee">
-								<MarqueeCard
-									className={cn("px-4 py-12 rounded-lg")}
-									description={sponsor.sponsor_description}
-									icon={sponsor.sponsor_icon}
-								/>
-							</div>
-						);
-					})}
+				<div className="sponsors">
+					<div className="title">
+						<h3>
+							Our Sponsors
+						</h3>
+					</div>
+					<div className="marquee-container">
+						{slice.primary.our_sponsors.map((sponsor, index) => {
+							return (
+								<div key={index} className="marquee">
+									<MarqueeCard
+										className={cn("px-4 py-12 rounded-lg")}
+										description={
+											sponsor.sponsor_description
+										}
+										icon={sponsor.sponsor_icon}
+									/>
+								</div>
+							);
+						})}
+						{slice.primary.our_sponsors.map((sponsor, index) => {
+							return (
+								<div key={index} className="marquee">
+									<MarqueeCard
+										className={cn("px-4 py-12 rounded-lg")}
+										description={
+											sponsor.sponsor_description
+										}
+										icon={sponsor.sponsor_icon}
+									/>
+								</div>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</HeroBounded>
