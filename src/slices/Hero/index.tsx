@@ -133,7 +133,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 			xPercent: -1000,
 			duration: 1000,
 			ease: "linear",
-			speed: 50,
 		});
 	});
 

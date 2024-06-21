@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "information_tab": {
+              "type": "SharedSlice"
+            },
             "features": {
               "type": "SharedSlice"
             },

@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        @apply bg-background text-text;
+        @apply selection:bg-accent/40 selection:text-text bg-background text-text;
     }
 
     .default-button {
@@ -56,5 +56,11 @@
 
     .marquee h3 {
         @apply text-4xl font-bold;
+    }
+
+
+
+    .prismic-rich-text li {
+        @apply list-disc ml-5;
     }
 }

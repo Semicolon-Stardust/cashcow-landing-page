@@ -1,0 +1,67 @@
+{
+  "id": "information_tab",
+  "type": "SharedSlice",
+  "name": "InformationTab",
+  "description": "InformationTab",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "tabs": {
+          "type": "Group",
+          "config": {
+            "label": "Tabs",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "tab_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Tab Title",
+                  "placeholder": ""
+                }
+              },
+              "tab_description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Tab Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Label",
+                  "placeholder": ""
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
