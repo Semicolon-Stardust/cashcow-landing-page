@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = FeaturesSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  | InformationTabSlice
+  | FeaturesSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -499,6 +502,106 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *InformationTab → Default → Primary → Tabs*
+ */
+export interface InformationTabSliceDefaultPrimaryTabsItem {
+  /**
+   * Icon field in *InformationTab → Default → Primary → Tabs*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_tab.default.primary.tabs[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Tab Title field in *InformationTab → Default → Primary → Tabs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_tab.default.primary.tabs[].tab_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tab_title: prismic.KeyTextField;
+
+  /**
+   * Tab Description field in *InformationTab → Default → Primary → Tabs*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_tab.default.primary.tabs[].tab_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tab_description: prismic.RichTextField;
+
+  /**
+   * Button Label field in *InformationTab → Default → Primary → Tabs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_tab.default.primary.tabs[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *InformationTab → Default → Primary → Tabs*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_tab.default.primary.tabs[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *InformationTab → Default → Primary*
+ */
+export interface InformationTabSliceDefaultPrimary {
+  /**
+   * Tabs field in *InformationTab → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_tab.default.primary.tabs[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tabs: prismic.GroupField<Simplify<InformationTabSliceDefaultPrimaryTabsItem>>;
+}
+
+/**
+ * Default variation for InformationTab Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InformationTabSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InformationTabSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InformationTab*
+ */
+type InformationTabSliceVariation = InformationTabSliceDefault;
+
+/**
+ * InformationTab Shared Slice
+ *
+ * - **API ID**: `information_tab`
+ * - **Description**: InformationTab
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InformationTabSlice = prismic.SharedSlice<
+  "information_tab",
+  InformationTabSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -530,6 +633,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      InformationTabSlice,
+      InformationTabSliceDefaultPrimaryTabsItem,
+      InformationTabSliceDefaultPrimary,
+      InformationTabSliceVariation,
+      InformationTabSliceDefault,
     };
   }
 }
